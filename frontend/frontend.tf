@@ -166,7 +166,7 @@ resource "aws_security_group" "muneeb_reverseproxy_sg" {
 }
 
 #9. Create reverse proxy server
-resource "aws_instance" "eks_reverseproxy" {
+resource "aws_instance" "nginx_reverseproxy" {
   ami                         = var.image_id
   instance_type               = var.instance_type
   key_name                    = var.ec2_key 
