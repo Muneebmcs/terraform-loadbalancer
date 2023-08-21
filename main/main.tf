@@ -39,3 +39,14 @@ module "frontend" {
     instance_type                   = var.instance_type 
     
 } 
+
+module "bastion" {
+  source                            = "../bastion"
+  name                            = var.name
+  vpc_id                          = "${module.vpc.vpc_id}"
+  ec2_key                         = var.ec2_key
+  image_id                        = var.image_id
+  instance_type                   = var.instance_type
+  subnet_id                       = "${module.vpc.subnet_id}"
+  prisubnet_id                    = "${module.vpc.prisubnet_id}"
+}
